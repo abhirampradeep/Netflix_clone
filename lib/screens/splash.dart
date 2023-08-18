@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Splash_Screen extends StatefulWidget {
-  const Splash_Screen({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<Splash_Screen> createState() => _Splash_ScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _Splash_ScreenState extends State<Splash_Screen> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     // TODO: implement initState
@@ -29,7 +29,7 @@ class _Splash_ScreenState extends State<Splash_Screen> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text('ff'),
+        child: Text('fftt'),
       ),
     );
   }
