@@ -1,22 +1,30 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:net/colors/colors.dart';
 import 'package:net/screens/widgets/bottom_nav.dart';
 
-class SearchPage extends StatefulWidget {
+class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
 
   @override
-  State<SearchPage> createState() => _SearchPageState();
-}
-
-class _SearchPageState extends State<SearchPage> {
-  @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(
-          child: Center(
-        child: Text('search', style: TextStyle(color: Colors.amber)),
-      )),
-    );
+    return Scaffold(
+        body: SafeArea(
+            child: Column(
+      children: [
+        CupertinoSearchTextField(
+          backgroundColor: Colors.grey.withOpacity(.5),
+          prefixIcon: Icon(
+            CupertinoIcons.search,
+            color: Colors.grey,
+          ),
+          suffixIcon: Icon(
+            CupertinoIcons.xmark_circle_fill,
+            color: Colors.grey,
+          ),
+          style: TextStyle(color: Colors.white),
+        )
+      ],
+    )));
   }
 }
