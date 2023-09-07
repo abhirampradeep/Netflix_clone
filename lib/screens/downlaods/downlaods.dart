@@ -117,16 +117,16 @@ class Section2 extends StatelessWidget {
                 ),
                 DownloadsImageWidget(
                   margin: EdgeInsets.only(left: 130, bottom: 25),
-                  imageList: imageList[0],
+                  imageList: imageList[1],
                   angle: 22,
                 ),
                 DownloadsImageWidget(
                   margin: EdgeInsets.only(right: 130, bottom: 25),
-                  imageList: imageList[0],
+                  imageList: imageList[1],
                   angle: -22,
                 ),
                 DownloadsImageWidget(
-                    margin: EdgeInsets.only(left: 0), imageList: imageList[0]),
+                    margin: EdgeInsets.only(left: 0), imageList: imageList[2]),
               ],
             ),
           ),

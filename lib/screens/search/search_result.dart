@@ -3,7 +3,7 @@ import 'package:net/colors/colors.dart';
 import 'package:net/screens/widgets/SearchPageTitle.dart';
 
 const imgUrl =
-    "https://media.istockphoto.com/id/184276818/photo/red-apple.jpg?s=612x612&w=0&k=20&c=NvO-bLsG0DJ_7Ii8SSVoKLurzjmV0Qi4eGfn6nW3l5w=";
+    "https://www.themoviedb.org/t/p/w220_and_h330_face/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg";
 
 class SearchResult extends StatelessWidget {
   const SearchResult({Key? key}) : super(key: key);
