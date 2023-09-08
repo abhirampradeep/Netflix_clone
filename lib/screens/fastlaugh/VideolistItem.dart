@@ -25,13 +25,13 @@ class VideoListItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 15, bottom: 30),
+              padding: const EdgeInsets.only(left: 15, bottom: 30),
 
               //left side
               child: CircleAvatar(
                   radius: 25,
                   child: IconButton(
-                      onPressed: () {}, icon: Icon(Icons.volume_up))),
+                      onPressed: () {}, icon: const Icon(Icons.volume_up))),
             ),
 
             //right side
