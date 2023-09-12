@@ -28,16 +28,39 @@ class _BottomNavbarState extends State<BottomNavbar> {
             selectedIconTheme: const IconThemeData(color: Colors.white),
             unselectedIconTheme: const IconThemeData(color: Colors.grey),
             items: const [
-              BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.collections), label: 'New and Hot'),
+                  icon: Icon(
+                    Icons.home,
+                    size: 24,
+                  ),
+                  label: 'Home'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.emoji_emotions), label: 'Fast Laughs'),
+                  icon: Icon(
+                    Icons.collections,
+                    size: 24,
+                  ),
+                  label: 'New & Hot'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.search), label: 'Search'),
+                  icon: Icon(
+                    Icons.emoji_emotions,
+                    size: 24,
+                  ),
+                  label: 'Laughs'),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.download), label: 'Downloads'),
+                  icon: Icon(
+                    Icons.search,
+                    size: 24,
+                  ),
+                  label: 'Search'),
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.download,
+                    size: 24,
+                  ),
+                  label: 'Downloads'),
             ],
+            selectedFontSize: 9,
+            unselectedFontSize: 12,
           );
         });
   }

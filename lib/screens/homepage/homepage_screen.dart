@@ -14,7 +14,7 @@ import 'package:net/screens/widgets/appbarwidget.dart';
 import 'package:net/screens/widgets/bottom_nav.dart';
 import 'package:net/screens/widgets/main_card.dart';
 
-ValueNotifier<bool> scrollNotifier = ValueNotifier(false);
+ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
 class HomepageScreen extends StatelessWidget {
   const HomepageScreen({super.key});
@@ -39,10 +39,10 @@ class HomepageScreen extends StatelessWidget {
                 child: Stack(
                   children: [
                     ListView(children: const [
-                      AppBarWidget(
-                          title: "no",
-                          CastIcon: Icon(Icons.cast_rounded),
-                          notificationsIcon: Icon(Icons.emoji_emotions)),
+                      // AppBarWidget(
+                      //     title: "no",
+                      //     CastIcon: Icon(Icons.cast_rounded),
+                      //     notificationsIcon: Icon(Icons.emoji_emotions)),
                       Column(children: [
                         BackgroundCard(),
                         HomePageTitleContent(
@@ -55,17 +55,88 @@ class HomepageScreen extends StatelessWidget {
                       ]),
                     ]),
                     scrollNotifier.value == true
-                        ? Container(
+                        ? AnimatedContainer(
+                            duration: Duration(seconds: 4),
                             width: double.infinity,
-                            height: 60,
-                            color: Colors.yellow,
+                            height: 90,
+                            color: Colors.black.withOpacity(.7),
+                            child: homeappbarwidget(),
                           )
-                        : SizedBox(
+                        : const SizedBox(
                             height: 10,
                           ),
                   ],
                 ),
               );
             }));
+  }
+}
+
+class homeappbarwidget extends StatelessWidget {
+  const homeappbarwidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Image.network(
+              "https://1000logos.net/wp-content/uploads/2017/05/Netflix-Logo-2006.png",
+              height: 40,
+              width: 50,
+            ),
+            Padding(
+              padding: EdgeInsets.all(8),
+              child: Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(
+                      Icons.cast,
+                      color: Colors.white, // Set the icon color to white
+                    ),
+                    onPressed: () {},
+                  ),
+                  IconButton(
+                    icon: const Icon(
+                      Icons.emoji_emotions,
+                      color: Colors.white, // Set the icon color to white
+                    ),
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+        const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Text(
+              "TV Shows",
+              style: TextStyle(color: white, fontWeight: FontWeight.bold),
+            ),
+            Text(
+              "Movies",
+              style: TextStyle(color: white, fontWeight: FontWeight.bold),
+            ),
+            Row(
+              children: [
+                Text(
+                  "Categories",
+                  style: TextStyle(color: white, fontWeight: FontWeight.bold),
+                ),
+                // IconButton(
+                //     onPressed: () {},
+                //     icon: Icon(Icons.arrow_downward))
+              ],
+            )
+          ],
+        )
+      ],
+    );
   }
 }
