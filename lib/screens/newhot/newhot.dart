@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:net/colors/colors.dart';
-import 'package:net/screens/widgets/appbarwidget.dart';
-import 'package:net/screens/widgets/bottom_nav.dart';
+import 'package:net/screens/newhot/widgets/comingsoon.dart';
 
 class NewHot extends StatefulWidget {
   const NewHot({super.key});
@@ -21,13 +20,13 @@ class _NewHotState extends State<NewHot> {
             title: const Text(
               "New & Hot",
               style: TextStyle(
-                  fontSize: 24, fontWeight: FontWeight.w900, color: white),
+                  fontSize: 18, fontWeight: FontWeight.w900, color: white),
             ),
             actions: [
               IconButton(
                 icon: const Icon(
                   Icons.cast,
-                  size: 30,
+                  size: 24,
                   color: white,
                 ),
                 onPressed: () {},
@@ -35,7 +34,7 @@ class _NewHotState extends State<NewHot> {
               IconButton(
                 icon: const Icon(
                   Icons.emoji_emotions,
-                  size: 30,
+                  size: 24,
                   color: white,
                 ),
                 onPressed: () {},
@@ -56,21 +55,28 @@ class _NewHotState extends State<NewHot> {
               ],
               indicatorSize: TabBarIndicatorSize.tab,
               unselectedLabelColor: white,
+              labelColor: Colors.black,
+              // labelColor: background,
               indicatorWeight: 0,
               // labelStyle: TextStyle(fontWeight: FontWeight.w500),
             ),
           ),
           body: TabBarView(
-            children: [buildtabbar("coming"), buildtabbar("watching")],
+            children: [buildcomingtabbar(), buildEveryonetabbar()],
           )),
     );
   }
-}
 
-buildtabbar(String name) {
-  return Center(
-      child: Text(
-    "$name",
-    style: TextStyle(color: white),
-  ));
+  Widget buildcomingtabbar() {
+    Size size = MediaQuery.of(context).size;
+    return ListView.builder(
+      itemCount: 12,
+      itemBuilder: (BuildContext context, int index) =>
+          Comingsoonwidget(size: size),
+    );
+  }
+
+  Widget buildEveryonetabbar() {
+    return const SizedBox();
+  }
 }

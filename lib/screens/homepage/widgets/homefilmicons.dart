@@ -17,8 +17,10 @@ class HomeFilmWidget extends StatelessWidget {
         filmicon, // Use the Icon widget directly
         Text(
           titlefilm,
-          style:
-              const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              color: Colors.white.withOpacity(.6),
+              fontWeight: FontWeight.bold,
+              fontSize: 12),
         ),
       ],
     );

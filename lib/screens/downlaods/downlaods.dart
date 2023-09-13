@@ -3,7 +3,6 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:net/colors/colors.dart';
 import 'package:net/screens/widgets/appbarwidget.dart';
-import 'package:net/screens/widgets/bottom_nav.dart';
 
 class Downloads extends StatelessWidget {
   Downloads({super.key});
@@ -16,7 +15,7 @@ class Downloads extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    // final Size size = MediaQuery.of(context).size;
     return Scaffold(
         appBar: const PreferredSize(
           preferredSize: Size.fromHeight(50),
