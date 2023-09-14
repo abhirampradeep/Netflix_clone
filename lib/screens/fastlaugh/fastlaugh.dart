@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:net/colors/colors.dart';
 import 'package:net/screens/fastlaugh/VideolistItem.dart';
-import 'package:net/screens/widgets/bottom_nav.dart';
 
 //page view is being used here,ie at a swipe we move from one widget to another widget
 

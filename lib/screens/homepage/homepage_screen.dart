@@ -1,18 +1,9 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:net/colors/colors.dart';
-import 'package:net/colors/constants.dart';
-import 'package:net/screens/fastlaugh/VideolistItem.dart';
 import 'package:net/screens/homepage/widgets/backgroundcard.dart';
 import 'package:net/screens/homepage/widgets/homeNumberContent.dart';
-import 'package:net/screens/homepage/widgets/homefilmicons.dart';
 import 'package:net/screens/homepage/widgets/homepagetitle.dart';
-import 'package:net/screens/search/search_result.dart';
-import 'package:net/screens/widgets/appbarwidget.dart';
-import 'package:net/screens/widgets/bottom_nav.dart';
-import 'package:net/screens/widgets/main_card.dart';
 
 ValueNotifier<bool> scrollNotifier = ValueNotifier(true);
 
