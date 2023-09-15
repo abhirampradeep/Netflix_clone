@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:net/colors/colors.dart';
 import 'package:net/screens/downlaods/downlaods.dart';
+import 'package:net/screens/downlaods/download_example.dart';
 import 'package:net/screens/fastlaugh/fastlaugh.dart';
 import 'package:net/screens/homepage/homepage_screen.dart';
 import 'package:net/screens/newhot/newhot.dart';
@@ -16,6 +17,7 @@ class ScreenMainPage extends StatelessWidget {
     Fastlaugh(),
     SearchPage(),
     Downloads(),
+    // Downloadexample(),
   ];
 
   @override
