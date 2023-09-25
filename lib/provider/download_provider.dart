@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:net/domain/downloads/models/down.dart';
-import 'package:net/domain/downloads/models/down.dart';
+import 'package:net/domain/models/download.dart';
+import 'package:net/domain/models/download.dart';
 import 'package:net/services/download_service.dart';
 
-import '../domain/downloads/models/down.dart';
-import '../domain/downloads/models/down.dart';
+import '../domain/models/download.dart';
+import '../domain/models/download.dart';
 
 class DownloadProvider extends ChangeNotifier {
   DownloadService _service = DownloadService();

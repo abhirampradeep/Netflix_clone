@@ -1,11 +1,11 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import 'package:net/domain/downloads/models/down.dart';
+import 'package:net/domain/models/download.dart';
 
 class DownloadService {
   Future<List<Download>> getAll() async {
     final url =
-        "https://api.themoviedb.org/3/trending/all/day?api_key=24fc761dce8176508050128e25eced4b";
+        "https://api.themoviedb.org/3/trending/all/day?api_key=577aa4329fd01a422022bc2176856782";
 
     final uri = Uri.parse(url);
 

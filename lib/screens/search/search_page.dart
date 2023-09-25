@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:net/screens/search/search_idle.dart';
 import 'package:net/screens/search/search_result.dart';
 
 class SearchPage extends StatelessWidget {
@@ -26,8 +27,12 @@ class SearchPage extends StatelessWidget {
             ),
             style: TextStyle(color: Colors.white),
           ),
+          SizedBox(
+            height: 20,
+          ),
           // Expanded(child: const SearchIdlePage()),
-          Expanded(child: const SearchResult()),
+          Expanded(child: SearchResultGridView())
+          // child: ComingSoonListPage(),
         ],
       ),
     )));

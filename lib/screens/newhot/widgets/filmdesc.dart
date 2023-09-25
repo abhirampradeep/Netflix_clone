@@ -1,34 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:net/colors/colors.dart';
 
-class filmshortdesc extends StatelessWidget {
-  const filmshortdesc({
-    super.key,
-  });
+class FilmShortDescription extends StatelessWidget {
+  final String title;
+  final String description;
+
+  const FilmShortDescription(
+      {super.key, required this.title, required this.description});
 
   @override
   Widget build(BuildContext context) {
-    return const Align(
+    return Align(
       alignment: Alignment.centerLeft,
       child: Padding(
-        padding: EdgeInsets.all(12.0),
+        padding: const EdgeInsets.all(12.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Outlanders 2",
+              title,
               style: TextStyle(
-                  color: white, fontSize: 16, fontWeight: FontWeight.bold),
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             SizedBox(
               height: 10,
             ),
             Text(
-              "Landing the lead in the school musical is a dream come true for Jodi,until the pressure sends her confidence.",
+              description,
               style: TextStyle(
-                  color: Colors.grey,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold),
+                color: Colors.grey,
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+              ),
             )
           ],
         ),

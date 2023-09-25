@@ -58,7 +58,7 @@ class _Section3State extends State<Section3> {
         SizedBox(
           width: double.infinity,
           child: MaterialButton(
-            padding: EdgeInsets.only(top: 10),
+            padding: const EdgeInsets.only(top: 10),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
@@ -99,23 +99,26 @@ class Section2 extends StatefulWidget {
 }
 
 class _Section2State extends State<Section2> {
-  String errorMessage = ''; // Add this variable to store error message
+  String errorMessage = '';
+  bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    fetchData(); // Call a function to fetch data
+    fetchData();
   }
 
   Future<void> fetchData() async {
     try {
-      // Fetch data from the provider
       await Provider.of<DownloadProvider>(context, listen: false)
           .getAllDownloads();
-    } catch (e) {
-      // Handle the error and set the error message
       setState(() {
-        errorMessage = 'Error: $e'; // Set the error message
+        isLoading = false;
+      });
+    } catch (e) {
+      setState(() {
+        errorMessage = 'Error: $e';
+        isLoading = false; // Set isLoading to false even on error
       });
     }
   }
@@ -123,6 +126,7 @@ class _Section2State extends State<Section2> {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
+
     return SizedBox(
       child: Column(
         children: [
@@ -158,33 +162,57 @@ class _Section2State extends State<Section2> {
                 ),
               ),
             ),
-          SizedBox(
-            width: size.width,
-            height: size.width + 30,
-            child: Stack(
-              alignment: Alignment.center,
-              children: [
-                CircleAvatar(
-                  radius: size.width * .38,
-                  backgroundColor: Colors.grey,
+          const SizedBox(
+            height: 20,
+          ),
+          // Use a Stack to overlay the circular progress indicator on images
+          Stack(
+            alignment: Alignment.center,
+            children: [
+              CircleAvatar(
+                radius: size.width * .38,
+                backgroundColor: Colors.grey,
+              ),
+              if (isLoading)
+                CircularProgressIndicator(
+                  color: Colors.blue,
                 ),
+              if (!isLoading)
                 DownloadsImageWidget(
                   margin: EdgeInsets.only(left: 130, bottom: 25),
-                  imageIndex: 0, // Set the appropriate index
+                  imageIndex: 0,
                   angle: 22,
                 ),
+              if (!isLoading)
                 DownloadsImageWidget(
                   margin: EdgeInsets.only(right: 130, bottom: 25),
-                  imageIndex: 2, // Set the appropriate index
+                  imageIndex: 2,
                   angle: -22,
                 ),
+              if (!isLoading)
                 DownloadsImageWidget(
                   margin: EdgeInsets.only(left: 0),
-                  imageIndex: 1, // Set the appropriate index
+                  imageIndex: 1,
                 ),
-              ],
-            ),
+            ],
           ),
+          const SizedBox(
+            height: 20,
+          ),
+          // Display a message when no images are available
+          if (!isLoading &&
+              errorMessage.isEmpty &&
+              Provider.of<DownloadProvider>(context).download.isEmpty)
+            Padding(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                "No images available.",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
         ],
       ),
     );

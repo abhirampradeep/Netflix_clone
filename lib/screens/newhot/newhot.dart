@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:net/colors/colors.dart';
+import 'package:net/screens/newhot/widgets/cominglist.dart';
 import 'package:net/screens/newhot/widgets/comingsoon.dart';
 import 'package:net/screens/newhot/widgets/everyone.dart';
 import 'package:net/screens/newhot/widgets/filmdesc.dart';
@@ -82,7 +83,7 @@ class _NewHotState extends State<NewHot> {
   Widget buildEveryonetabbar() {
     return ListView.builder(
       itemCount: 12,
-      itemBuilder: (BuildContext context, int index) => everyonewatching(),
+      itemBuilder: (BuildContext context, int index) => EveryOneWatching(),
     );
   }
 }

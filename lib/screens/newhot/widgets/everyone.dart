@@ -1,80 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:net/colors/colors.dart';
-import 'package:net/screens/newhot/widgets/filmdesc.dart';
-import 'package:net/screens/newhot/widgets/newicon.dart';
+import 'package:net/provider/everyone_provider.dart';
+import 'package:provider/provider.dart';
 
-class everyonewatching extends StatelessWidget {
-  const everyonewatching({super.key});
+class EveryOneWatching extends StatefulWidget {
+  @override
+  _EveryOneWatchingState createState() => _EveryOneWatchingState();
+}
+
+class _EveryOneWatchingState extends State<EveryOneWatching> {
+  final FilmProvider filmProvider = FilmProvider();
+
+  @override
+  void initState() {
+    super.initState();
+    filmProvider.fetchFilms();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width,
-      height: 450,
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: SizedBox(
-                    width: double.infinity,
-                    height: 200,
-                    child: Image.network(
-                      "https://www.themoviedb.org/t/p/w533_and_h300_bestv2/nf3Vlxm3C9U1aKUUQHmKFZmxPSc.jpg",
-                      fit: BoxFit.contain,
-                    )),
-              ),
-              Positioned(
-                  bottom: 20,
-                  right: 10,
-                  child: CircleAvatar(
-                    radius: 22,
-                    backgroundColor: Colors.black.withOpacity(.1),
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.volume_down_rounded,
-                          color: background,
-                          size: 30,
-                        )),
-                  ))
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              newpageicon(
-                title: "Share",
-                newicon: const Icon(
-                  Icons.share,
-                  color: white,
-                ),
-                newiconPress: () {},
-              ),
-              newpageicon(
-                title: "My List",
-                newicon: const Icon(
-                  Icons.add,
-                  color: white,
-                ),
-                newiconPress: () {},
-              ),
-              newpageicon(
-                title: "Play",
-                newicon: const Icon(
-                  Icons.play_arrow,
-                  color: white,
-                ),
-                newiconPress: () {},
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          filmshortdesc(),
-        ],
+    return Scaffold(
+      body: Center(
+        child: Consumer<FilmProvider>(
+          builder: (context, filmProvider, child) {
+            if (filmProvider.films.isEmpty) {
+              return CircularProgressIndicator();
+            } else {
+              return ListView.builder(
+                itemCount: filmProvider.films.length,
+                itemBuilder: (context, index) {
+                  final film = filmProvider.films[index];
+                  return ListTile(
+                    title: Text(
+                      film.title,
+                      style: TextStyle(color: white),
+                    ),
+                    subtitle: Text(film.description),
+                    leading: Image.network(film.imageUrl),
+                  );
+                },
+              );
+            }
+          },
+        ),
       ),
     );
   }
